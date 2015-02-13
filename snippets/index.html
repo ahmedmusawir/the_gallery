@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PHP Envato</title>
+    <link href="_css/bootstrap.min.css" rel="stylesheet">
+    <link href="_css/style.css" rel="stylesheet">
+    <style type="text/css">
+     img {
+      width: 100%;
+     }
+     div#picture_box {
+      background: #e3e3e3;
+     }
+     .thumbnail {
+      margin-bottom: 0;
+     }
+     .page-header h1 {
+      text-shadow: 0px 1px 0px #fff;
+      padding-left: 0em;
+     }
+
+    </style>
+  </head>
+  <body>
+    <div class="page-header">
+      <section class="container">
+        <h1>PHP Ajax Multi Gallary</h1>
+      </section>
+    </div>
+    <!-- HEADER ENDS -->
+    <!-- CONTAINER STARTS HERE -->
+    <section class="container">
+      <div class="row">
+        <article class="col-md-12">
+          <form action="#" id="choice_form">
+          
+            <div class="form-group">
+              <select type="text" class="form-control" id="choice" name="folder_name">
+                <option value="../_img/skydive">Choose an Image Folder ...</option>
+                <option value="../_img/atlanta">Atlanta City</option>
+                <option value="../_img/chicago">The City of Chicago</option>
+                <option value="../_img/just_another_day">An Ordinary Day</option>
+                <option value="../_img/photoshop">Thanx to Photoshop</option>
+                <option value="../_img/the_new_pony">The New Pony</option>
+                <option value="../_img/tennessee">Smokey Mountains</option>
+                <option value="../_img/skydive">The Sky Dive</option>
+              </select>
+            </div>
+          
+          </form>
+        </article>
+      </div>
+      <div class="col-md-2 col-sm-2 col-lg-2">
+        <ul class="content">
+
+          <script type="text/x-handlebars-template" id="temp">
+           {{#each this}} 
+           <li class="thumbnail"><a href='{{img_url}}'><img class="img-responsive" src='{{img_url}}'></a></li>
+           {{/each}} 
+          </script>
+        </ul>
+      </div>      
+
+      <div class="col-md-10 col-sm-10 col-lg-9 hidden-xs" id="picture_box"></div>
+        
+    </section>
+    <!-- CONTAINER ENDS HERE -->
+
+    <script src="_js/jquery-2.0.3.min.js"></script>
+    <script src="_js/handlebars-v1.1.2.js"></script>
+    <script src="_js/php_image_gallary_final.js"></script>
+    <script type="text/javascript">
+    (function () {
+
+      GetData.init({
+        content: $('.content'),
+        template: $('#temp').html(),
+        picBox: $('#picture_box'),
+        theFirst: '../_img/skydive',
+        theSelect: $('#choice')
+      });
+
+    })();
+
+    </script>
+  </body>
+</html>
